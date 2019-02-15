@@ -1,0 +1,1167 @@
+// Created     : 2013-09-23 12:57:23
+// DLL id      : C:\Work\main\Products\bin\x64\pfs2004.dll
+// PFS version : Sep 22 2013 19:49:58
+// type = 2
+
+[ECO_LAB_SETUP]
+   DESCRIPTION = 'MIKE 11 WQ Level 3'
+   ONLINE_HELP = 'BOD, DO and nitrification'
+   DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+   [MISC]
+      DESCRIPTION = 'Miscellaneous Description'
+      ONLINE_HELP = 'Miscellaneous Online help'
+      DOCUMENTATION = 'Miscellaneous Documentation'
+      ECOLAB_VERSION = 2014.109985351563
+      PARSER_VERSION = 2014.017944335938
+      DOCUMENT_REVISION = 2
+      RANDSEED = 0
+      DEBUG_LEVEL = 0
+      DEBUG_LOG = ''
+      RANDOM_PARTICLE_DIR = 'NO'
+      BUILD_SPATIAL_TREE = 'NO'
+      CHECKSUM = '0'
+      OPTIMISE = 'YES'
+      TRIGONOMETRICS = 'Radians'
+   EndSect  // MISC
+
+   [STATE_VARIABLES]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+      [STATE_VARIABLE_1]
+         SYMBOL = 'DO'
+         ID = 1
+         DESCRIPTION = 'Dissolved oxygen'
+         ONLINE_HELP = 'Initial value can often be estimated from measurements, alternatively saturation concentration from temperature and salinity'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         SCOPE = 'WC'
+         TRANSPORT = 'ADVECTION_DISPERSION'
+         EUM_TYPE = 100404
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 10
+         MIN_VALUE = 0
+         MAX_VALUE = 18
+      EndSect  // STATE_VARIABLE_1
+
+      [STATE_VARIABLE_2]
+         SYMBOL = 'TEMP'
+         ID = 2
+         DESCRIPTION = 'Temperature'
+         ONLINE_HELP = 'Initial value can often be estimated from measurements'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         SCOPE = 'WC'
+         TRANSPORT = 'ADVECTION_DISPERSION'
+         EUM_TYPE = 999
+         UNIT = 'Degrees'
+         DEFAULT_VALUE = 15
+         MIN_VALUE = 0
+         MAX_VALUE = 30
+      EndSect  // STATE_VARIABLE_2
+
+      [STATE_VARIABLE_3]
+         SYMBOL = 'AMMONIA'
+         ID = 3
+         DESCRIPTION = 'Ammonia'
+         ONLINE_HELP = 'Initial value can often be estimated from measurements'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         SCOPE = 'WC'
+         TRANSPORT = 'ADVECTION_DISPERSION'
+         EUM_TYPE = 100404
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = 0
+         MAX_VALUE = 200
+      EndSect  // STATE_VARIABLE_3
+
+      [STATE_VARIABLE_4]
+         SYMBOL = 'NITRATE'
+         ID = 4
+         DESCRIPTION = 'Nitrate'
+         ONLINE_HELP = 'Initial value can often be estimated from measurements'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         SCOPE = 'WC'
+         TRANSPORT = 'ADVECTION_DISPERSION'
+         EUM_TYPE = 100404
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = 0
+         MAX_VALUE = 200
+      EndSect  // STATE_VARIABLE_4
+
+      [STATE_VARIABLE_5]
+         SYMBOL = 'BOD'
+         ID = 5
+         DESCRIPTION = 'BOD'
+         ONLINE_HELP = 'BOD (over 5 days). Initial value can often be estimated from measurements'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         SCOPE = 'WC'
+         TRANSPORT = 'ADVECTION_DISPERSION'
+         EUM_TYPE = 100404
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 0
+         MAX_VALUE = 200
+      EndSect  // STATE_VARIABLE_5
+
+   EndSect  // STATE_VARIABLES
+
+   [CONSTANTS]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+      [CONSTANT_1]
+         SYMBOL = 'latitu'
+         ID = 6
+         DESCRIPTION = 'Temperature: Latitude'
+         ONLINE_HELP = 'Variable specified in the bathymetry of the hydrodynamic setup for MIKE 21/3 models, user-specified parameter in MIKE 11'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'NO'
+         BUILT_IN_ID = 1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'Degrees'
+         DEFAULT_VALUE = 55
+         MIN_VALUE = -90
+         MAX_VALUE = 90
+      EndSect  // CONSTANT_1
+
+      [CONSTANT_2]
+         SYMBOL = 'Emax'
+         ID = 7
+         DESCRIPTION = 'Temperature: Maximum absorbed solar radiation'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 4992
+         MIN_VALUE = 0
+         MAX_VALUE = 20000
+      EndSect  // CONSTANT_2
+
+      [CONSTANT_3]
+         SYMBOL = 'fi1'
+         ID = 8
+         DESCRIPTION = 'Temperature: Displacement of solar radiation max. from 12 pm'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'hours'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = -3
+         MAX_VALUE = 3
+      EndSect  // CONSTANT_3
+
+      [CONSTANT_4]
+         SYMBOL = 'Eaf'
+         ID = 9
+         DESCRIPTION = 'Temperature: Emitted heat radiation'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 1608
+         MIN_VALUE = 0
+         MAX_VALUE = 20000
+      EndSect  // CONSTANT_4
+
+      [CONSTANT_5]
+         SYMBOL = 'RearNo'
+         ID = 10
+         DESCRIPTION = 'Oxygen Processes: No. of reaeration expression'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 3
+         MIN_VALUE = 1
+         MAX_VALUE = 6
+      EndSect  // CONSTANT_5
+
+      [CONSTANT_6]
+         SYMBOL = 'teta_rear'
+         ID = 11
+         DESCRIPTION = 'Oxygen Processes: Reaeration temperature coefficient'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 1.02
+         MIN_VALUE = 1
+         MAX_VALUE = 1.2
+      EndSect  // CONSTANT_6
+
+      [CONSTANT_7]
+         SYMBOL = 'resp'
+         ID = 12
+         DESCRIPTION = 'Oxygen Processes: Respiration of animals and plants'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 3
+         MIN_VALUE = 0
+         MAX_VALUE = 30
+      EndSect  // CONSTANT_7
+
+      [CONSTANT_8]
+         SYMBOL = 'teta2'
+         ID = 13
+         DESCRIPTION = 'Oxygen Processes: Respiration temperature coefficient'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 1.05
+         MIN_VALUE = 1
+         MAX_VALUE = 1.2
+      EndSect  // CONSTANT_8
+
+      [CONSTANT_9]
+         SYMBOL = 'pmax'
+         ID = 14
+         DESCRIPTION = 'Oxygen Processes: Max. oxygen production by photosynthesis'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 3.5
+         MIN_VALUE = 0
+         MAX_VALUE = 40
+      EndSect  // CONSTANT_9
+
+      [CONSTANT_10]
+         SYMBOL = 'prodm2'
+         ID = 15
+         DESCRIPTION = 'Oxygen Processes: Production/respiration per m2 (=1) or per m3 (=2)'
+         ONLINE_HELP = 'Select 1 or 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = ''
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 1
+         MAX_VALUE = 2
+      EndSect  // CONSTANT_10
+
+      [CONSTANT_11]
+         SYMBOL = 'kd3'
+         ID = 16
+         DESCRIPTION = 'Degradation: 1. order decay rate at 20 deg. C'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 0.5
+         MIN_VALUE = 0
+         MAX_VALUE = 5
+      EndSect  // CONSTANT_11
+
+      [CONSTANT_12]
+         SYMBOL = 'tetad3'
+         ID = 17
+         DESCRIPTION = 'Degradation: Temperature coefficient for decay rate'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 1.02
+         MIN_VALUE = 1
+         MAX_VALUE = 1.2
+      EndSect  // CONSTANT_12
+
+      [CONSTANT_13]
+         SYMBOL = 'mdo'
+         ID = 18
+         DESCRIPTION = 'Degradation: Half-saturation oxygen concentration'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 2
+         MIN_VALUE = 0
+         MAX_VALUE = 20
+      EndSect  // CONSTANT_13
+
+      [CONSTANT_14]
+         SYMBOL = 'own1k2'
+         ID = 19
+         DESCRIPTION = 'Oxygen Processes: Own #1 Reaeration constant'
+         ONLINE_HELP = 'K2 in own expression No. 1'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 0
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_14
+
+      [CONSTANT_15]
+         SYMBOL = 'own1uexp'
+         ID = 20
+         DESCRIPTION = 'Oxygen Processes: Own #1 Exponent, flow velocity'
+         ONLINE_HELP = 'Exponent own expression No. 1'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_15
+
+      [CONSTANT_16]
+         SYMBOL = 'own1dexp'
+         ID = 21
+         DESCRIPTION = 'Oxygen Processes: Own #1 Exponent, water depth'
+         ONLINE_HELP = 'Exponent own expression No. 1'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_16
+
+      [CONSTANT_17]
+         SYMBOL = 'own1iexp'
+         ID = 22
+         DESCRIPTION = 'Oxygen Processes: Own #1 Exponent, river slope'
+         ONLINE_HELP = 'Exponent own expression No. 1'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_17
+
+      [CONSTANT_18]
+         SYMBOL = 'own2k2'
+         ID = 23
+         DESCRIPTION = 'Oxygen Processes: Own #2 Reaeration constant'
+         ONLINE_HELP = 'K2 in own expression No. 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 0
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_18
+
+      [CONSTANT_19]
+         SYMBOL = 'own2uexp'
+         ID = 24
+         DESCRIPTION = 'Oxygen Processes: Own #2 Exponent, flow velocity'
+         ONLINE_HELP = 'Exponent own expression No. 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_19
+
+      [CONSTANT_20]
+         SYMBOL = 'own2dexp'
+         ID = 25
+         DESCRIPTION = 'Oxygen Processes: Own #2 Exponent, flow velocity'
+         ONLINE_HELP = 'Exponent own expression No. 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_20
+
+      [CONSTANT_21]
+         SYMBOL = 'own2iexp'
+         ID = 26
+         DESCRIPTION = 'Oxygen Processes: Own #2 Exponent, river slope'
+         ONLINE_HELP = 'Exponent own expression No. 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_21
+
+      [CONSTANT_22]
+         SYMBOL = 'own3k2'
+         ID = 27
+         DESCRIPTION = 'Oxygen Processes: Own #3 Reaeration constant'
+         ONLINE_HELP = 'K2 in own expression No. 3'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 0
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_22
+
+      [CONSTANT_23]
+         SYMBOL = 'own3uexp'
+         ID = 28
+         DESCRIPTION = 'Oxygen Processes: Own #3 Exponent, flow velocity'
+         ONLINE_HELP = 'Exponent own expression No. 3'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_23
+
+      [CONSTANT_24]
+         SYMBOL = 'own3dexp'
+         ID = 29
+         DESCRIPTION = 'Oxygen Processes: Own #3 Exponent, flow velocity'
+         ONLINE_HELP = 'Exponent own expression No. 3'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_24
+
+      [CONSTANT_25]
+         SYMBOL = 'own3iexp'
+         ID = 30
+         DESCRIPTION = 'Oxygen Processes: Own #3 Exponent, river slope'
+         ONLINE_HELP = 'Exponent own expression No. 3'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // CONSTANT_25
+
+      [CONSTANT_26]
+         SYMBOL = 'ReleaseRatio'
+         ID = 31
+         DESCRIPTION = 'Nitrogen Content: Ratio of ammonia released at BOD decay'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 999
+         UNIT = 'gNH4/gBOD'
+         DEFAULT_VALUE = 0.29
+         MIN_VALUE = 0
+         MAX_VALUE = 1
+      EndSect  // CONSTANT_26
+
+      [CONSTANT_27]
+         SYMBOL = 'AmmoniaPlantUptake'
+         ID = 32
+         DESCRIPTION = 'Nitrogen Content: Uptake of ammonia in plants'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'Dimensionless'
+         DEFAULT_VALUE = 0.066
+         MIN_VALUE = 0
+         MAX_VALUE = 0.25
+      EndSect  // CONSTANT_27
+
+      [CONSTANT_28]
+         SYMBOL = 'AmmoniaBacteriaUptake'
+         ID = 33
+         DESCRIPTION = 'Nitrogen Content: Uptake of ammonia in bacteria'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'Dimensionless'
+         DEFAULT_VALUE = 0.109
+         MIN_VALUE = 0
+         MAX_VALUE = 0.25
+      EndSect  // CONSTANT_28
+
+      [CONSTANT_29]
+         SYMBOL = 'ReactionOrder'
+         ID = 34
+         DESCRIPTION = 'Nitrification: Reaction order 1 = first order process 2 = half order process'
+         ONLINE_HELP = 'Select 1 or 2'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 999
+         UNIT = 'Dimensionless'
+         DEFAULT_VALUE = 1
+         MIN_VALUE = 1
+         MAX_VALUE = 2
+      EndSect  // CONSTANT_29
+
+      [CONSTANT_30]
+         SYMBOL = 'NitrificationRate'
+         ID = 35
+         DESCRIPTION = 'Nitrification: Ammonia decay rate at 20 deg Celcius'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 100150
+         UNIT = 'per day'
+         DEFAULT_VALUE = 1.54
+         MIN_VALUE = 0
+         MAX_VALUE = 2
+      EndSect  // CONSTANT_30
+
+      [CONSTANT_31]
+         SYMBOL = 'TempCoefNitrification'
+         ID = 36
+         DESCRIPTION = 'Nitrification: Temperature coefficient for nitrification'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 999
+         UNIT = 'dimensionless'
+         DEFAULT_VALUE = 1.13
+         MIN_VALUE = 1
+         MAX_VALUE = 1.2
+      EndSect  // CONSTANT_31
+
+      [CONSTANT_32]
+         SYMBOL = 'OxygenDemand'
+         ID = 37
+         DESCRIPTION = 'Nitrification: Oxygen demand by nitrification'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'gO2/gHN4'
+         DEFAULT_VALUE = 4.47
+         MIN_VALUE = 4.4
+         MAX_VALUE = 4.54
+      EndSect  // CONSTANT_32
+
+      [CONSTANT_33]
+         SYMBOL = 'Halfsaturation_Constant_Ammonia'
+         ID = 38
+         DESCRIPTION = 'No description'
+         ONLINE_HELP = 'Subject for calibration'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'YES'
+         BUILT_IN_ID = -1
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         EUM_TYPE = 999
+         UNIT = 'mg/l'
+         DEFAULT_VALUE = 0.05
+         MIN_VALUE = 0
+         MAX_VALUE = 1
+      EndSect  // CONSTANT_33
+
+   EndSect  // CONSTANTS
+
+   [FORCINGS]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+      [FORCING_1]
+         SYMBOL = 'sali'
+         ID = 39
+         DESCRIPTION = 'Salinity'
+         ONLINE_HELP = 'Input data from measurements (transferred from hydrodynamic model in MIKE 3)'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'NO'
+         BUILT_IN_ID = 5
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 999
+         UNIT = 'psu'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = 0
+         MAX_VALUE = 350
+      EndSect  // FORCING_1
+
+      [FORCING_2]
+         SYMBOL = 'depth'
+         ID = 40
+         DESCRIPTION = 'Water depth'
+         ONLINE_HELP = 'Transferred from hydrodynamic model'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'NO'
+         BUILT_IN_ID = 10
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'm'
+         DEFAULT_VALUE = 8
+         MIN_VALUE = 0
+         MAX_VALUE = 12000
+      EndSect  // FORCING_2
+
+      [FORCING_3]
+         SYMBOL = 'U'
+         ID = 41
+         DESCRIPTION = 'Flow velocity'
+         ONLINE_HELP = 'Transferred from hydrodynamic model'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'NO'
+         BUILT_IN_ID = 11
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         EUM_TYPE = 999
+         UNIT = 'm/s'
+         DEFAULT_VALUE = 0.2
+         MIN_VALUE = 0
+         MAX_VALUE = 10
+      EndSect  // FORCING_3
+
+      [FORCING_4]
+         SYMBOL = 'I'
+         ID = 42
+         DESCRIPTION = 'Slope'
+         ONLINE_HELP = 'Transferred from hydrodynamic model'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         IS_USER_SPECIFIED = 'NO'
+         BUILT_IN_ID = 14
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         EUM_TYPE = 999
+         UNIT = 'm/m'
+         DEFAULT_VALUE = 0
+         MIN_VALUE = -10
+         MAX_VALUE = 10
+      EndSect  // FORCING_4
+
+   EndSect  // FORCINGS
+
+   [AUXILIARY_VARIABLES]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+      [AUXILIARY_VARIABLE_1]
+         SYMBOL = 'csair'
+         ID = 43
+         DESCRIPTION = 'Oxygen saturation concentration'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg/l'
+         EXPRESSION = '"OXYGENSATURATION(sali,TEMP)"'
+      EndSect  // AUXILIARY_VARIABLE_1
+
+      [AUXILIARY_VARIABLE_2]
+         SYMBOL = 'K2rear1'
+         ID = 44
+         DESCRIPTION = 'Reaeration: Thyssen expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF RearNo==1 THEN 27185*POW(U,0.931)*POW(depth,-0.692)*POW(I,1.09) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_2
+
+      [AUXILIARY_VARIABLE_3]
+         SYMBOL = 'K2rear2'
+         ID = 45
+         DESCRIPTION = 'Reaeration: O''Connor / Dubbins expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF RearNo==2 THEN 3.9*POW(U,0.5)*POW(depth,-1.5) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_3
+
+      [AUXILIARY_VARIABLE_4]
+         SYMBOL = 'K2rear3'
+         ID = 46
+         DESCRIPTION = 'Reaeration: Churchill expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = ''
+         EXPRESSION = '"IF RearNo==3 THEN 5.233*POW(U,1)*POW(depth,-1.67) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_4
+
+      [AUXILIARY_VARIABLE_5]
+         SYMBOL = 'K2rear4'
+         ID = 47
+         DESCRIPTION = 'Reaeration: Own #1 expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = ''
+         EXPRESSION = '"IF RearNo==4 THEN own1k2*POW(U,own1uexp)*POW(depth,own1dexp)*POW(I,own1iexp) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_5
+
+      [AUXILIARY_VARIABLE_6]
+         SYMBOL = 'K2rear5'
+         ID = 48
+         DESCRIPTION = 'Reaeration: Own #2 expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = ''
+         EXPRESSION = '"IF RearNo==5 THEN own2k2*POW(U,own2uexp)*POW(depth,own2dexp)*POW(I,own2iexp) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_6
+
+      [AUXILIARY_VARIABLE_7]
+         SYMBOL = 'K2rear6'
+         ID = 49
+         DESCRIPTION = 'Reaeration: Own #3 expression'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = ''
+         EXPRESSION = '"IF RearNo==6 THEN own3k2*POW(U,own3uexp)*POW(depth,own3dexp)*POW(I,own3iexp) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_7
+
+      [AUXILIARY_VARIABLE_8]
+         SYMBOL = 'K2'
+         ID = 50
+         DESCRIPTION = 'Reaeration rate'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'per day'
+         EXPRESSION = '"K2rear1+K2rear2+K2rear3+K2rear4+K2rear5+K2rear6"'
+      EndSect  // AUXILIARY_VARIABLE_8
+
+      [AUXILIARY_VARIABLE_9]
+         SYMBOL = 'rd'
+         ID = 51
+         DESCRIPTION = 'Relative Daylength'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"RELATIVE_DAYLENGTH(YEAR,MONTH,DAY,latitu)"'
+      EndSect  // AUXILIARY_VARIABLE_9
+
+      [AUXILIARY_VARIABLE_10]
+         SYMBOL = 't'
+         ID = 52
+         DESCRIPTION = 'Solar irradiance factor 1 for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'hours'
+         EXPRESSION = '"HOUR-(12.0+fi1)"'
+      EndSect  // AUXILIARY_VARIABLE_10
+
+      [AUXILIARY_VARIABLE_11]
+         SYMBOL = 'sunup'
+         ID = 53
+         DESCRIPTION = 'Solar irradiance factor 2 for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF (HOUR > SUNRISE(YEAR,MONTH,DAY,latitu,fi1)) THEN 1 ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_11
+
+      [AUXILIARY_VARIABLE_12]
+         SYMBOL = 'sundown'
+         ID = 54
+         DESCRIPTION = 'Solar irradiance factor 3 for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF (HOUR < SUNSET(YEAR,MONTH,DAY,latitu,fi1)) THEN 1.0 ELSE 0.0"'
+      EndSect  // AUXILIARY_VARIABLE_12
+
+      [AUXILIARY_VARIABLE_13]
+         SYMBOL = 'dayswitch'
+         ID = 55
+         DESCRIPTION = 'Solar irradiance factor 4 for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"sunup + sundown"'
+      EndSect  // AUXILIARY_VARIABLE_13
+
+      [AUXILIARY_VARIABLE_14]
+         SYMBOL = 'alfa'
+         ID = 56
+         DESCRIPTION = 'Solar irradiance factor 5 for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"2*rd"'
+      EndSect  // AUXILIARY_VARIABLE_14
+
+      [AUXILIARY_VARIABLE_15]
+         SYMBOL = 'suninp'
+         ID = 57
+         DESCRIPTION = 'Solar irradiance factor for diurnal variations'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'NONE'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF dayswitch==2.0 THEN COS(2.0*PI()*(t/24)/alfa) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_15
+
+      [AUXILIARY_VARIABLE_16]
+         SYMBOL = 'rad_fac'
+         ID = 58
+         DESCRIPTION = 'Factor for temperature capacity'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'dimensionless'
+         EXPRESSION = '"IF depth>0 THEN 1/(depth*4.2*1000) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_16
+
+      [AUXILIARY_VARIABLE_17]
+         SYMBOL = 'NitrificationProcess'
+         ID = 59
+         DESCRIPTION = 'Correction for temperature and oxygen, nitrification'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'NO'
+         SCOPE = 'NOT_SPECIFIED'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = ''
+         EXPRESSION = '"IF TempCoefNitrification > 0 THEN ARRHENIUS20(TempCoefNitrification,TEMP)*MICHAELIS_MENTEN1(DO*DO,mdo) ELSE 0"'
+      EndSect  // AUXILIARY_VARIABLE_17
+
+   EndSect  // AUXILIARY_VARIABLES
+
+   [PROCESSES]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+      [PROCESS_1]
+         SYMBOL = 'bodd'
+         ID = 60
+         DESCRIPTION = 'BOD degradation'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg/l/d'
+         EXPRESSION = '"kd3*ARRHENIUS20(tetad3,TEMP) *BOD*POW(DO,2)/(POW(DO,2)+mdo)"'
+      EndSect  // PROCESS_1
+
+      [PROCESS_2]
+         SYMBOL = 'reaera'
+         ID = 61
+         DESCRIPTION = 'Reaeration'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WS'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'mg/l/d'
+         EXPRESSION = '"IF DO > 0.0 THEN K2*ARRHENIUS20(teta_rear,TEMP)*(csair-DO) ELSE K2*ARRHENIUS20(teta_rear,TEMP)*csair"'
+      EndSect  // PROCESS_2
+
+      [PROCESS_3]
+         SYMBOL = 'phtsyn'
+         ID = 62
+         DESCRIPTION = 'Photosynthesis in water column'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg/l/d'
+         EXPRESSION = '"IF prodm2==1 THEN pmax*suninp/depth ELSE pmax*suninp"'
+      EndSect  // PROCESS_3
+
+      [PROCESS_4]
+         SYMBOL = 'respT'
+         ID = 63
+         DESCRIPTION = 'Oxygen consumption from respiration of plants'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg/l/d'
+         EXPRESSION = '"IF prodm2==1 THEN MICHAELIS_MENTEN1(DO*DO,mdo)*resp*ARRHENIUS20(teta2,TEMP)/depth ELSE MICHAELIS_MENTEN1(DO*DO,mdo)*resp*ARRHENIUS20(teta2,TEMP)"'
+      EndSect  // PROCESS_4
+
+      [PROCESS_5]
+         SYMBOL = 'Rad_in'
+         ID = 64
+         DESCRIPTION = 'Radiation into water'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WS'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'degrees/d'
+         EXPRESSION = '"Emax*suninp*rad_fac"'
+      EndSect  // PROCESS_5
+
+      [PROCESS_6]
+         SYMBOL = 'Rad_out'
+         ID = 65
+         DESCRIPTION = 'Radiation out of water'
+         ONLINE_HELP = ''
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WS'
+         SPATIAL_VARIATION = 'HORISONTAL'
+         UNIT = 'degrees/d'
+         EXPRESSION = '"Eaf*rad_fac"'
+      EndSect  // PROCESS_6
+
+      [PROCESS_7]
+         SYMBOL = 'AmmoniaReleaseFromBOD'
+         ID = 66
+         DESCRIPTION = 'Ammonification'
+         ONLINE_HELP = 'Ammonia realease from degradation of BOD'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg N/l/d'
+         EXPRESSION = '"ReleaseRatio*bodd"'
+      EndSect  // PROCESS_7
+
+      [PROCESS_8]
+         SYMBOL = 'Nitrification'
+         ID = 67
+         DESCRIPTION = 'Nitrification'
+         ONLINE_HELP = 'Nitrification process e.g transformation of ammonia to nitrate'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg N/l/d'
+         EXPRESSION = '"IF ReactionOrder == 1 THEN NitrificationRate*NitrificationProcess*AMMONIA ELSE  NitrificationRate*NitrificationProcess*SQRT(AMMONIA)"'
+      EndSect  // PROCESS_8
+
+      [PROCESS_9]
+         SYMBOL = 'Plantuptake'
+         ID = 68
+         DESCRIPTION = 'N uptake plants'
+         ONLINE_HELP = 'Uptake of ammonia in plants'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg N/l/d'
+         EXPRESSION = '"IF (phtsyn-respT > 0.8*(pmax/depth-respT)) THEN MICHAELIS_MENTEN1(AMMONIA,Halfsaturation_Constant_Ammonia)*(phtsyn-respT)*AmmoniaPlantUptake  ELSE  (0.8*pmax/depth-respT)*AmmoniaPlantUptake*MICHAELIS_MENTEN1(AMMONIA,Halfsaturation_Constant_Ammonia)"'
+      EndSect  // PROCESS_9
+
+      [PROCESS_10]
+         SYMBOL = 'bacteriaUptake'
+         ID = 69
+         DESCRIPTION = 'N uptake bacteria'
+         ONLINE_HELP = 'Uptake of ammonia in bacteria'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg N/l/d'
+         EXPRESSION = '"AmmoniaBacteriaUptake*bodd"'
+      EndSect  // PROCESS_10
+
+      [PROCESS_11]
+         SYMBOL = 'OxygenConsumptionFromNitrification'
+         ID = 70
+         DESCRIPTION = 'Oxygen consumption nitrification'
+         ONLINE_HELP = 'Oxygen consumption from nitrification process'
+         DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+         OUTPUT = 'YES'
+         PROCESS_TYPE = 'TRANSFORMATION'
+         SCOPE = 'WC'
+         SPATIAL_VARIATION = 'HORISONTAL_AND_VERTICAL'
+         UNIT = 'mg/l/d'
+         EXPRESSION = '"OxygenDemand*Nitrification"'
+      EndSect  // PROCESS_11
+
+   EndSect  // PROCESSES
+
+   [DERIVED_OUTPUTS]
+      DESCRIPTION = 'No description'
+      ONLINE_HELP = ''
+      DOCUMENTATION = 'ECOLab_Oilspill\ECOLAB_M11_WQ.pdf'
+   EndSect  // DERIVED_OUTPUTS
+
+   [STATE_VARIABLE_EQUATIONS]
+      [STATE_VARIABLE_EQUATION_1]
+         DO = '"reaera + phtsyn - respT - bodd - OxygenConsumptionFromNitrification"'
+      EndSect  // STATE_VARIABLE_EQUATION_1
+
+      [STATE_VARIABLE_EQUATION_2]
+         TEMP = '"Rad_in-Rad_out"'
+      EndSect  // STATE_VARIABLE_EQUATION_2
+
+      [STATE_VARIABLE_EQUATION_3]
+         AMMONIA = '"AmmoniaReleaseFromBOD - Nitrification - Plantuptake - bacteriaUptake"'
+      EndSect  // STATE_VARIABLE_EQUATION_3
+
+      [STATE_VARIABLE_EQUATION_4]
+         NITRATE = '"Nitrification"'
+      EndSect  // STATE_VARIABLE_EQUATION_4
+
+      [STATE_VARIABLE_EQUATION_5]
+         BOD = '"- bodd"'
+      EndSect  // STATE_VARIABLE_EQUATION_5
+
+   EndSect  // STATE_VARIABLE_EQUATIONS
+
+EndSect  // ECO_LAB_SETUP
+
+
